@@ -34,7 +34,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		recipeDAO.delete(id);
 
 	}
 

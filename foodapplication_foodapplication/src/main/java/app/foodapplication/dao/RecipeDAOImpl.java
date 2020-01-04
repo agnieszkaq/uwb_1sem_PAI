@@ -39,7 +39,8 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe recipeObj = currentSession.get(Recipe.class, id);
+		currentSession.delete(recipeObj);
 	}
 }
