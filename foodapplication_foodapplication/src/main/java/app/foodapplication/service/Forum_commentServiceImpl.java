@@ -9,31 +9,33 @@ import app.foodapplication.model.Forum_comment;
 
 @Service
 public class Forum_commentServiceImpl implements Forum_commentService {
-	
+
 	@Autowired
 	Forum_commentDAO forum_commentDAO;
-	
+
 	@Transactional
 	@Override
 	public List<Forum_comment> get() {
 		return forum_commentDAO.get();
 	}
+
 	@Transactional
 	@Override
 	public Forum_comment get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return forum_commentDAO.get(id);
 	}
+
 	@Transactional
 	@Override
 	public void save(Forum_comment forum_comment) {
 		forum_commentDAO.save(forum_comment);
 	}
+
 	@Transactional
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

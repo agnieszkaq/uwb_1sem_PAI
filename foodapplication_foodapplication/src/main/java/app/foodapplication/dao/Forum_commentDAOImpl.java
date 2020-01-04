@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import app.foodapplication.model.Forum_comment;
+import app.foodapplication.model.Forum_comment;
 
 @Repository
 public class Forum_commentDAOImpl implements Forum_commentDAO {
@@ -24,9 +25,11 @@ public class Forum_commentDAOImpl implements Forum_commentDAO {
 
 	@Override
 	public Forum_comment get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = entityManager.unwrap(Session.class);
+		Forum_comment forum_commentObj = currentSession.get(Forum_comment.class, id);
+		return forum_commentObj;
 	}
+
 
 	@Override
 	public void save(Forum_comment forum_comment) {

@@ -9,31 +9,33 @@ import app.foodapplication.model.Forum_note;
 
 @Service
 public class Forum_noteServiceImpl implements Forum_noteService {
-	
+
 	@Autowired
 	Forum_noteDAO forum_noteDAO;
-	
+
 	@Transactional
 	@Override
 	public List<Forum_note> get() {
 		return forum_noteDAO.get();
 	}
+
 	@Transactional
 	@Override
 	public Forum_note get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return forum_noteDAO.get(id);
 	}
+
 	@Transactional
 	@Override
 	public void save(Forum_note forum_note) {
 		forum_noteDAO.save(forum_note);
 	}
+
 	@Transactional
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import app.foodapplication.model.Weight;
 import app.foodapplication.model.Weight;
 
 @Repository
@@ -24,10 +26,12 @@ public class WeightDAOImpl implements WeightDAO {
 	}
 
 	@Override
-	public WeightDAO get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Weight get(int id) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Weight weightObj = currentSession.get(Weight.class, id);
+		return weightObj;
 	}
+
 
 	@Override
 	public void save(Weight weight) {

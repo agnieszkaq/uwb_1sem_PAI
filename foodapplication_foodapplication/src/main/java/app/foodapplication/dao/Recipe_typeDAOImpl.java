@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Recipe_type;
 
 @Repository
@@ -25,10 +27,12 @@ public class Recipe_typeDAOImpl implements Recipe_typeDAO {
 	}
 
 	@Override
-	public Recipe_typeDAO get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Recipe_type get(int id) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe_type recipe_typeObj = currentSession.get(Recipe_type.class, id);
+		return recipe_typeObj;
 	}
+
 
 	@Override
 	public void save(Recipe_type recipe_type) {

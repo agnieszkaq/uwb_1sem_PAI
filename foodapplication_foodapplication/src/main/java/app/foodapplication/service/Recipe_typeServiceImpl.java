@@ -13,29 +13,30 @@ public class Recipe_typeServiceImpl implements Recipe_typeService {
 
 	@Autowired
 	Recipe_typeDAO recipe_typeDAO;
-	
-	
+
 	@Transactional
 	@Override
 	public List<Recipe_type> get() {
 		return recipe_typeDAO.get();
 	}
+
 	@Transactional
 	@Override
 	public Recipe_type get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return recipe_typeDAO.get(id);
 	}
+
 	@Transactional
 	@Override
 	public void save(Recipe_type recipe_type) {
 		recipe_typeDAO.save(recipe_type);
 	}
+
 	@Transactional
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }

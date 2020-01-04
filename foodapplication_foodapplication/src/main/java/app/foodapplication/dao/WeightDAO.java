@@ -8,7 +8,7 @@ public interface WeightDAO {
 
 	List<Weight> get();
 
-	WeightDAO get(int id);
+	Weight get(int id);
 
 	void save(Weight weight);
 

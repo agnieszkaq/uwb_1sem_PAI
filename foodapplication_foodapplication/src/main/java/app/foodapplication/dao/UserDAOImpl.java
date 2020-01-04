@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import app.foodapplication.model.User;
 import app.foodapplication.model.User;
 
 @Repository
@@ -25,10 +27,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public UserDAO get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User get(int id) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		User userObj = currentSession.get(User.class, id);
+		return userObj;
 	}
+
 
 	@Override
 	public void save(User user) {

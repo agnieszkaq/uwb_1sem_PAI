@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import app.foodapplication.model.Ingredient;
+import app.foodapplication.model.Ingredient;
 
 @Repository
 public class IngredientDAOImpl implements IngredientDAO {
@@ -24,11 +25,14 @@ public class IngredientDAOImpl implements IngredientDAO {
 		return list;
 	}
 
+	
 	@Override
 	public Ingredient get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = entityManager.unwrap(Session.class);
+		Ingredient ingredientObj = currentSession.get(Ingredient.class, id);
+		return ingredientObj;
 	}
+
 
 	@Override
 	public void save(Ingredient ingredient) {

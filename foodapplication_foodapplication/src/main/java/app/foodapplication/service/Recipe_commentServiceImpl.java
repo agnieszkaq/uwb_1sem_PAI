@@ -22,8 +22,7 @@ public class Recipe_commentServiceImpl implements Recipe_commentService {
 	@Transactional
 	@Override
 	public Recipe_comment get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return recipe_commentDAO.get(id);
 	}
 
 	@Transactional

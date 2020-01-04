@@ -22,8 +22,7 @@ public class Fav_user_recipeServiceImpl implements Fav_user_recipeService {
 	@Transactional
 	@Override
 	public Fav_user_recipe get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return fav_user_recipeDAO.get(id);
 	}
 
 	@Transactional

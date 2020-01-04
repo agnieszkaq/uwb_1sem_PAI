@@ -9,10 +9,10 @@ import app.foodapplication.model.Weight;
 
 @Service
 public class WeightServiceImpl implements WeightService {
-	
+
 	@Autowired
 	WeightDAO weightDAO;
-	
+
 	@Transactional
 	@Override
 	public List<Weight> get() {
@@ -22,8 +22,7 @@ public class WeightServiceImpl implements WeightService {
 	@Transactional
 	@Override
 	public Weight get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return weightDAO.get(id);
 	}
 
 	@Transactional

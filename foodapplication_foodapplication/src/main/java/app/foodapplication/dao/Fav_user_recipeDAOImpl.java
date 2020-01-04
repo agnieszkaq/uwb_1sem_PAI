@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import app.foodapplication.model.Fav_user_recipe;
+import app.foodapplication.model.Recipe;
 
 @Repository
 public class Fav_user_recipeDAOImpl implements Fav_user_recipeDAO {
@@ -24,9 +25,11 @@ public class Fav_user_recipeDAOImpl implements Fav_user_recipeDAO {
 
 	@Override
 	public Fav_user_recipe get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = entityManager.unwrap(Session.class);
+		Fav_user_recipe fav_user_recipeObj = currentSession.get(Fav_user_recipe.class, id);
+		return fav_user_recipeObj;
 	}
+
 
 	@Override
 	public void save(Fav_user_recipe fav_user_recipe) {

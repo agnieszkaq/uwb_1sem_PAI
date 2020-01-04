@@ -6,7 +6,7 @@ public interface Recipe_typeDAO {
 
 	List<Recipe_type> get();
 
-	Recipe_typeDAO get(int id);
+	Recipe_type get(int id);
 
 	void save(Recipe_type recipe_type);
 

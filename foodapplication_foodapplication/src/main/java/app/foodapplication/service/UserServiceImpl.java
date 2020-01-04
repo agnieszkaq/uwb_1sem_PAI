@@ -9,31 +9,33 @@ import app.foodapplication.model.User;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	UserDAO userDAO;
-	
+
 	@Transactional
 	@Override
 	public List<User> get() {
 		return userDAO.get();
 	}
+
 	@Transactional
 	@Override
 	public User get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDAO.get(id);
 	}
+
 	@Transactional
 	@Override
 	public void save(User user) {
 		userDAO.save(user);
 	}
+
 	@Transactional
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

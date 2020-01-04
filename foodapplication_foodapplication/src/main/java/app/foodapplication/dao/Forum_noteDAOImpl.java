@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import app.foodapplication.model.Forum_note;
+import app.foodapplication.model.Forum_note;
 
 @Repository
 public class Forum_noteDAOImpl implements Forum_noteDAO {
@@ -26,9 +27,11 @@ public class Forum_noteDAOImpl implements Forum_noteDAO {
 
 	@Override
 	public Forum_note get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = entityManager.unwrap(Session.class);
+		Forum_note forum_noteObj = currentSession.get(Forum_note.class, id);
+		return forum_noteObj;
 	}
+
 
 	@Override
 	public void save(Forum_note forum_note) {

@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Recipe_information;
 
 @Repository
@@ -23,12 +25,13 @@ public class Recipe_informationDAOImpl implements Recipe_informationDAO {
 		List<Recipe_information> list = query.getResultList();
 		return list;
 	}
-
 	@Override
-	public app.foodapplication.model.Recipe_information get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Recipe_information get(int id) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe_information recipe_informationObj = currentSession.get(Recipe_information.class, id);
+		return recipe_informationObj;
 	}
+
 
 	@Override
 	public void save(app.foodapplication.model.Recipe_information recipe_information) {
