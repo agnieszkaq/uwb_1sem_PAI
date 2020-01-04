@@ -22,8 +22,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	@Override
 	public Recipe get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return recipeDAO.get(id);
 	}
 
 	@Transactional

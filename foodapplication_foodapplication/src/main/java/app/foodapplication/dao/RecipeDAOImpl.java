@@ -26,8 +26,9 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public Recipe get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe recipeObj = currentSession.get(Recipe.class, id);
+		return recipeObj;
 	}
 
 	@Override
