@@ -32,8 +32,8 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public void save(Recipe recipe) {
-		// TODO Auto-generated method stub
-
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(recipe);
 	}
 
 	@Override

@@ -30,8 +30,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	@Override
 	public void save(Recipe recipe) {
-		// TODO Auto-generated method stub
-
+		recipeDAO.save(recipe);
 	}
 
 	@Transactional
