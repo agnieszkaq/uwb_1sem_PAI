@@ -9,11 +9,10 @@ import app.foodapplication.model.Recipe;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
-	
+
 	@Autowired
 	RecipeDAO recipeDAO;
-	
-	
+
 	@Transactional
 	@Override
 	public List<Recipe> get() {

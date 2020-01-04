@@ -27,8 +27,7 @@ public class Forum_commentServiceImpl implements Forum_commentService {
 	@Transactional
 	@Override
 	public void save(Forum_comment forum_comment) {
-		// TODO Auto-generated method stub
-		
+		forum_commentDAO.save(forum_comment);
 	}
 	@Transactional
 	@Override

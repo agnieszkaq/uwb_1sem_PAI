@@ -30,7 +30,8 @@ public class Fav_user_recipeDAOImpl implements Fav_user_recipeDAO {
 
 	@Override
 	public void save(Fav_user_recipe fav_user_recipe) {
-		// TODO Auto-generated method stub
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(fav_user_recipe);
 
 	}
 

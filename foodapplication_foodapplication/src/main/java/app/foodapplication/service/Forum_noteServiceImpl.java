@@ -27,8 +27,7 @@ public class Forum_noteServiceImpl implements Forum_noteService {
 	@Transactional
 	@Override
 	public void save(Forum_note forum_note) {
-		// TODO Auto-generated method stub
-		
+		forum_noteDAO.save(forum_note);
 	}
 	@Transactional
 	@Override

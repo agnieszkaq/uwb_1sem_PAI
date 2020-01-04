@@ -32,8 +32,8 @@ public class Recipe_typeDAOImpl implements Recipe_typeDAO {
 
 	@Override
 	public void save(Recipe_type recipe_type) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(recipe_type);
 	}
 
 	@Override

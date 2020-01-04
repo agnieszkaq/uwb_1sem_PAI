@@ -29,8 +29,7 @@ public class WeightServiceImpl implements WeightService {
 	@Transactional
 	@Override
 	public void save(Weight weight) {
-		// TODO Auto-generated method stub
-
+		weightDAO.save(weight);
 	}
 
 	@Transactional

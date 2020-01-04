@@ -3,8 +3,12 @@ package app.foodapplication.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Recipe_type;
 import app.foodapplication.service.Recipe_typeService;
 
@@ -18,6 +22,11 @@ public class Recipe_typeController {
 	@GetMapping("/recipe_type")
 	public List<Recipe_type> get(){
 		return recipe_typeService.get();
+	}
+	@PostMapping("/recipe_type")
+	public Recipe_type save(@RequestBody Recipe_type recipe_typeObj) {
+		recipe_typeService.save(recipe_typeObj);
+		return recipe_typeObj;
 	}
 }
  

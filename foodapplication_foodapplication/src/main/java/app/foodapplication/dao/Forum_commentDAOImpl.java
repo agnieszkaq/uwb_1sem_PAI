@@ -30,15 +30,14 @@ public class Forum_commentDAOImpl implements Forum_commentDAO {
 
 	@Override
 	public void save(Forum_comment forum_comment) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(forum_comment);
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 }

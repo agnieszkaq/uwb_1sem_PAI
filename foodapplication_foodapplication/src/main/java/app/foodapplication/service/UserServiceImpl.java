@@ -27,8 +27,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	@Override
 	public void save(User user) {
-		// TODO Auto-generated method stub
-		
+		userDAO.save(user);
 	}
 	@Transactional
 	@Override

@@ -32,7 +32,8 @@ public class Recipe_commentDAOImpl implements Recipe_commentDAO {
 
 	@Override
 	public void save(Recipe_comment recipe_comment) {
-		// TODO Auto-generated method stub
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(recipe_comment);
 		
 	}
 

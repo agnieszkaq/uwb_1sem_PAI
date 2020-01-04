@@ -32,8 +32,8 @@ public class Forum_noteDAOImpl implements Forum_noteDAO {
 
 	@Override
 	public void save(Forum_note forum_note) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(forum_note);
 	}
 
 	@Override

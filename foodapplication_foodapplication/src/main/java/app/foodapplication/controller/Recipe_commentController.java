@@ -3,9 +3,12 @@ package app.foodapplication.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Recipe_comment;
 import app.foodapplication.service.Recipe_commentService;
 
@@ -18,5 +21,10 @@ public class Recipe_commentController {
 	@GetMapping("/recipe_comment")
 	public List<Recipe_comment> get() {
 		return recipe_commentService.get();
-}
+	}
+	@PostMapping("/recipe_comment")
+	public Recipe_comment save(@RequestBody Recipe_comment recipe_commentObj) {
+		recipe_commentService.save(recipe_commentObj);
+		return recipe_commentObj;
+	}
 }

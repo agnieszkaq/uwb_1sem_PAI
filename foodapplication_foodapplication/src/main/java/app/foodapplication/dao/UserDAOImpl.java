@@ -32,8 +32,8 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void save(User user) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(user);	
 	}
 
 	@Override

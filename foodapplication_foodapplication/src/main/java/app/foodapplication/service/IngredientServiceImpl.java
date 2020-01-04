@@ -28,8 +28,7 @@ public class IngredientServiceImpl implements IngredientService {
 	@Transactional
 	@Override
 	public void save(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		
+		ingredientDAO.save(ingredient);
 	}
 	@Transactional
 	@Override

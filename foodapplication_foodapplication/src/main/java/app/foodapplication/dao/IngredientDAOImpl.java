@@ -32,8 +32,8 @@ public class IngredientDAOImpl implements IngredientDAO {
 
 	@Override
 	public void save(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.save(ingredient);
 	}
 
 	@Override

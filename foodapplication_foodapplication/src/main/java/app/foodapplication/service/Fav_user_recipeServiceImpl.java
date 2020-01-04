@@ -29,7 +29,7 @@ public class Fav_user_recipeServiceImpl implements Fav_user_recipeService {
 	@Transactional
 	@Override
 	public void save(Fav_user_recipe fav_user_recipe) {
-		// TODO Auto-generated method stub
+		fav_user_recipeDAO.save(fav_user_recipe);
 
 	}
 
