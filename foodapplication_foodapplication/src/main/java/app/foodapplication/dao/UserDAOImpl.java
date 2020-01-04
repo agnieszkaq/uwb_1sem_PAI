@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import app.foodapplication.model.User;
-import app.foodapplication.model.User;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
@@ -42,8 +41,9 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		User userObj = currentSession.get(User.class, id);
+		currentSession.delete(userObj);
 	}
 
 }

@@ -38,11 +38,11 @@ public class Recipe_informationDAOImpl implements Recipe_informationDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		currentSession.save(recipe_information);
 	}
-
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe_information recipe_informationObj = currentSession.get(Recipe_information.class, id);
+		currentSession.delete(recipe_informationObj);
 	}
 
 }

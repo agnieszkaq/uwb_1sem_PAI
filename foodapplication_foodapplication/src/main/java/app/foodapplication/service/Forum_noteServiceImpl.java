@@ -34,7 +34,7 @@ public class Forum_noteServiceImpl implements Forum_noteService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		forum_noteDAO.delete(id);
 
 	}
 

@@ -41,8 +41,9 @@ public class Forum_noteDAOImpl implements Forum_noteDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		Forum_note forum_noteObj = currentSession.get(Forum_note.class, id);
+		currentSession.delete(forum_noteObj);
 	}
 
 }

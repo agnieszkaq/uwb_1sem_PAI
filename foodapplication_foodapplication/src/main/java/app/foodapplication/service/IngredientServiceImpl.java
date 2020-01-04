@@ -34,7 +34,7 @@ public class IngredientServiceImpl implements IngredientService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		ingredientDAO.delete(id);
 
 	}
 

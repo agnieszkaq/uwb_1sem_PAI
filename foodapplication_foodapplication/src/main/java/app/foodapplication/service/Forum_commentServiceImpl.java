@@ -34,8 +34,7 @@ public class Forum_commentServiceImpl implements Forum_commentService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		forum_commentDAO.delete(id);
 	}
 
 }

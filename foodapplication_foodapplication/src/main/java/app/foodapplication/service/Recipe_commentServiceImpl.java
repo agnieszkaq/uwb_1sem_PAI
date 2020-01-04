@@ -34,7 +34,7 @@ public class Recipe_commentServiceImpl implements Recipe_commentService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		recipe_commentDAO.delete(id);
 
 	}
 

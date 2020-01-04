@@ -2,6 +2,7 @@ package app.foodapplication.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,15 +23,25 @@ public class IngredientController {
 	public List<Ingredient> get() {
 		return ingredientService.get();
 	}
-	
+
 	@GetMapping("/ingredient/{id}")
 	public Ingredient get(@PathVariable int id) {
-		return ingredientService.get(id);
+		Ingredient ingredientObj = ingredientService.get(id);
+		if (ingredientObj == null) {
+			throw new RuntimeException("The ingredient with id:" + id + " doesn't exist!");
+		}
+		return ingredientObj;
 	}
-	
+
 	@PostMapping("/ingredient")
 	public Ingredient save(@RequestBody Ingredient ingredientObj) {
 		ingredientService.save(ingredientObj);
 		return ingredientObj;
+	}
+
+	@DeleteMapping("/ingredient/{id}")
+	public String delete(@PathVariable int id) {
+		ingredientService.delete(id);
+		return "The ingredient has been deleted with id:" + id;
 	}
 }

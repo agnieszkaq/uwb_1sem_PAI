@@ -39,11 +39,11 @@ public class Recipe_commentDAOImpl implements Recipe_commentDAO {
 		currentSession.save(recipe_comment);
 
 	}
-
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe_comment recipe_commentObj = currentSession.get(Recipe_comment.class, id);
+		currentSession.delete(recipe_commentObj);
 	}
 
 }

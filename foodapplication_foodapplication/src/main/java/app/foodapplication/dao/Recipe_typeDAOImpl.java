@@ -33,7 +33,6 @@ public class Recipe_typeDAOImpl implements Recipe_typeDAO {
 		return recipe_typeObj;
 	}
 
-
 	@Override
 	public void save(Recipe_type recipe_type) {
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -42,8 +41,9 @@ public class Recipe_typeDAOImpl implements Recipe_typeDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		Recipe_type recipe_typeObj = currentSession.get(Recipe_type.class, id);
+		currentSession.delete(recipe_typeObj);
 	}
 
 }

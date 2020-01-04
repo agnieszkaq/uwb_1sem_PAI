@@ -40,7 +40,8 @@ public class Fav_user_recipeDAOImpl implements Fav_user_recipeDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		Session currentSession = entityManager.unwrap(Session.class);
+		Fav_user_recipe fav_user_recipeObj = currentSession.get(Fav_user_recipe.class, id);
+		currentSession.delete(fav_user_recipeObj);
 	}
 }

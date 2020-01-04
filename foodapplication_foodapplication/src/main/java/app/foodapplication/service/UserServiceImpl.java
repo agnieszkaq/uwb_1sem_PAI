@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		userDAO.delete(id);
 
 	}
 

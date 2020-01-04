@@ -42,8 +42,9 @@ public class IngredientDAOImpl implements IngredientDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = entityManager.unwrap(Session.class);
+		Ingredient ingredientObj = currentSession.get(Ingredient.class, id);
+		currentSession.delete(ingredientObj);
 	}
 
 }

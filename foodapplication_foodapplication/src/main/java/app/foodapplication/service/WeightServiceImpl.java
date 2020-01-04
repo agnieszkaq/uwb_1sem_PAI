@@ -34,8 +34,7 @@ public class WeightServiceImpl implements WeightService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		weightDAO.delete(id);
 	}
 
 }

@@ -35,7 +35,7 @@ public class Fav_user_recipeServiceImpl implements Fav_user_recipeService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		fav_user_recipeDAO.delete(id);
 
 	}
 
