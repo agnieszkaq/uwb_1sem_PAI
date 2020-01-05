@@ -36,7 +36,7 @@ public class Recipe_typeDAOImpl implements Recipe_typeDAO {
 	@Override
 	public void save(Recipe_type recipe_type) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(recipe_type);
+		currentSession.saveOrUpdate(recipe_type);
 	}
 
 	@Override

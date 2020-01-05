@@ -36,7 +36,7 @@ public class Recipe_commentDAOImpl implements Recipe_commentDAO {
 	@Override
 	public void save(Recipe_comment recipe_comment) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(recipe_comment);
+		currentSession.saveOrUpdate(recipe_comment);
 
 	}
 	@Override

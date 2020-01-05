@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Recipe_comment;
 import app.foodapplication.service.Recipe_commentService;
 
@@ -43,5 +45,11 @@ public class Recipe_commentController {
 	public String delete(@PathVariable int id) {
 		recipe_commentService.delete(id);
 		return "The recipe_comment has been deleted with id:" + id;
+	}
+
+	@PutMapping("/recipe_comment")
+	public Recipe_comment update(@RequestBody Recipe_comment recipe_commentObj) {
+		recipe_commentService.save(recipe_commentObj);
+		return recipe_commentObj;
 	}
 }

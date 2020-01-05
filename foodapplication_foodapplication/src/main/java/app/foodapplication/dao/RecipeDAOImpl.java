@@ -34,7 +34,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	@Override
 	public void save(Recipe recipe) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(recipe);
+		currentSession.saveOrUpdate(recipe);
 	}
 
 	@Override

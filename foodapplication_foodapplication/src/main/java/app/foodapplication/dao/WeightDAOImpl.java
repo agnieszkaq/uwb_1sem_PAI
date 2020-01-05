@@ -37,7 +37,7 @@ public class WeightDAOImpl implements WeightDAO {
 	@Override
 	public void save(Weight weight) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(weight);
+		currentSession.saveOrUpdate(weight);
 	}
 
 	@Override

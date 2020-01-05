@@ -36,7 +36,7 @@ public class Recipe_informationDAOImpl implements Recipe_informationDAO {
 	@Override
 	public void save(app.foodapplication.model.Recipe_information recipe_information) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(recipe_information);
+		currentSession.saveOrUpdate(recipe_information);
 	}
 	@Override
 	public void delete(int id) {

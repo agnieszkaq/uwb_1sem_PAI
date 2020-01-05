@@ -36,7 +36,7 @@ public class Forum_noteDAOImpl implements Forum_noteDAO {
 	@Override
 	public void save(Forum_note forum_note) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(forum_note);
+		currentSession.saveOrUpdate(forum_note);
 	}
 
 	@Override

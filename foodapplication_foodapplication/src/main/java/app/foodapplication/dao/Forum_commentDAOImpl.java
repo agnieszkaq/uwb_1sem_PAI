@@ -33,7 +33,7 @@ public class Forum_commentDAOImpl implements Forum_commentDAO {
 	@Override
 	public void save(Forum_comment forum_comment) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(forum_comment);
+		currentSession.saveOrUpdate(forum_comment);
 	}
 
 	@Override
