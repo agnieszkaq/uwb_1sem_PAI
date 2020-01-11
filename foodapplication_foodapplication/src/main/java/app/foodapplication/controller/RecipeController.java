@@ -30,6 +30,7 @@ public class RecipeController {
 	@RequestMapping(value = { "/", "home", "/index" })
 	public ModelAndView get() {
 		ModelAndView mav = new ModelAndView("recipeList");
+		mav.addObject("list", recipeService.get());
 		return mav;
 	}
 
