@@ -13,6 +13,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 	@Column
 	private String username;

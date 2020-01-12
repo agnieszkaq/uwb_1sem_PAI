@@ -1,5 +1,6 @@
 package app.foodapplication.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -32,18 +33,19 @@ public class UserDAOImpl implements UserDAO {
 		return userObj;
 	}
 
-
 	@Override
 	public void save(User user) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.saveOrUpdate(user);	
+		currentSession.saveOrUpdate(user);
 	}
 
+	
 	@Override
 	public void delete(int id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		User userObj = currentSession.get(User.class, id);
 		currentSession.delete(userObj);
 	}
+
 
 }

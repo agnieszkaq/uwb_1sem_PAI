@@ -15,6 +15,7 @@ public class Forum_note {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 	@Column
 	private String topic;

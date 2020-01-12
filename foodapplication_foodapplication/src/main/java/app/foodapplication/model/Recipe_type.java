@@ -13,6 +13,7 @@ public class Recipe_type {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 	@Column
 	private String name;

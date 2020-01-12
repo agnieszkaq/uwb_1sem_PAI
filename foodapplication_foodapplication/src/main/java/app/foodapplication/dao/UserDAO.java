@@ -13,4 +13,5 @@ public interface UserDAO {
 	void save(User user);
 
 	void delete(int id);
+
 }

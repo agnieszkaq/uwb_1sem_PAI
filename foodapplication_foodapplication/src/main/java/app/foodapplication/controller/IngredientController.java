@@ -2,6 +2,7 @@ package app.foodapplication.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,20 +11,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import app.foodapplication.model.Ingredient;
 import app.foodapplication.service.IngredientService;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class IngredientController {
 	@Autowired
 	private IngredientService ingredientService;
 
-	@GetMapping("/ingredient")
-	public List<Ingredient> get() {
-		return ingredientService.get();
-	}
+//	@GetMapping("/ingredient")
+//	public List<Ingredient> get() {
+//		return ingredientService.get();
+//	}
 
 	@GetMapping("/ingredient/{id}")
 	public Ingredient get(@PathVariable int id) {
@@ -34,6 +35,14 @@ public class IngredientController {
 		return ingredientObj;
 	}
 
+	@RequestMapping(value = {"/ingredient/list"})
+	public ModelAndView showIngredient() {
+		ModelAndView mav = new ModelAndView("ingredientList");
+		mav.addObject("ingredient", ingredientService.get());
+		return mav;
+	}
+	
+	
 	@PostMapping("/ingredient")
 	public Ingredient save(@RequestBody Ingredient ingredientObj) {
 		ingredientService.save(ingredientObj);

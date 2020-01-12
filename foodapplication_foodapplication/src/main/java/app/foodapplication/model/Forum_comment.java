@@ -14,6 +14,7 @@ import javax.persistence.Table;
 public class Forum_comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 	@Column
 	private Date date;

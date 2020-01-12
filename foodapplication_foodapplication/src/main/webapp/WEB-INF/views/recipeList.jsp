@@ -10,22 +10,22 @@
 <body>
 
 	<h1>Lista przepisów:</h1>
-	<table>
+	<table border="1">
 		<tr>
 			<th>Nazwa:</th>
 			<th>Opis:</th>
 			<th>ID użytkownik:</th>
 			<th>ID typu:</th>
 		</tr>
-			<c:forEach items="${list}" var="e">
+			<c:forEach items="${recipe}" var="e">
 				<tr>
-					<td>${e.description}</td>
 					<td>${e.text}</td>
+					<td>${e.description}</td>
 					<td>${e.id_user}</td>
 					<td>${e.id_recipe_type }</td>
 				</tr>
 			</c:forEach>
 	</table>
-
+<button onclick="window.location.href = '/user/add'">Idz rejestracji</button>
 </body>
 </html>
