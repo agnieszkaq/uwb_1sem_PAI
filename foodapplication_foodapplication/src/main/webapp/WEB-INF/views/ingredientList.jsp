@@ -4,14 +4,15 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<link href="https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>Składnik:</h1>
-	<table border="1">
-		<tr>
+<div class="container">
+	<h2>SKŁADNIK:</h2>
+	<table class="table table-striped table-bordered">
+		<tr class="thead-dark">
 			<th>Nazwa:</th>
 			<th>Kalorie:</th>
 			<th>białko:</th>
@@ -30,5 +31,6 @@
 	</table>
 	<button onclick="window.location.href = '/user/add'">Idz
 		rejestracji</button>
+		</div>
 </body>
 </html>
