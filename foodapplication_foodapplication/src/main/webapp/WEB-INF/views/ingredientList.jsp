@@ -10,14 +10,14 @@
 </head>
 <body>
 <div class="container">
-	<h2>SKŁADNIK:</h2>
+	<h2 class="text-info">WARTOŚĆ KALORYCZNA:</h2>
 	<table class="table table-striped table-bordered">
 		<tr class="thead-dark">
 			<th>Nazwa:</th>
 			<th>Kalorie:</th>
-			<th>białko:</th>
-			<th>tłuszcz:</th>
-			<th>węglowodany:</th>
+			<th>Białko:</th>
+			<th>Tłuszcz:</th>
+			<th>Węglowodany:</th>
 		</tr>
 		<c:forEach items="${ingredient}" var="e">
 			<tr>

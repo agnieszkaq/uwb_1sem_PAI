@@ -30,6 +30,12 @@ public class UserServiceImpl implements UserService {
 	public void save(User user) {
 		userDAO.save(user);
 	}
+	
+	@Transactional
+	@Override
+	public void update(User user) {
+		userDAO.update(user);
+	}
 
 	@Transactional
 	@Override

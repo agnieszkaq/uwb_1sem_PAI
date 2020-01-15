@@ -38,7 +38,6 @@ public class UserDAOImpl implements UserDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(user);
 	}
-
 	
 	@Override
 	public void delete(int id) {
@@ -47,5 +46,10 @@ public class UserDAOImpl implements UserDAO {
 		currentSession.delete(userObj);
 	}
 
+	@Override
+	public void update(User user) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		currentSession.saveOrUpdate(user);
+	}
 
 }
