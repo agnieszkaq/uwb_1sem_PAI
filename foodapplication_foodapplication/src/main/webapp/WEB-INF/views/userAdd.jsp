@@ -13,26 +13,34 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">REJESTRACJA: </a>
+	</nav>
+	</br>
 	<div class="container">
-		<h3 class="text-muted">Rejestracja:</h3>
 		<div class="form-group">
 			<form:form action="${pageContext.request.contextPath}/user/save"
 				modelAttribute="user">
-				<small>Nazwa użytkownika:</small>
-				<form:input path="username" class="form-control"
-					placeholder="Wpisz nazwę użytkownika:" />
-				<br />
-		<p class="bg-warning">${message}</p>
-	<small>Hasło:</small>
-				<form:input path="password" class="form-control"
-					placeholder="Wpisz hasło:" />
-				<br />
-				<small>Email:</small>
-				<form:input path="email" class="form-control"
-					placeholder="Wpisz email:" />
-				<br />
-				<form:hidden path="id" />
-				<button type="submit" class="btn btn-dark btn-block">Zapisz</button>
+				<div class="card">
+					<div class="card-header">Zarejestruj się:</div>
+					<div class="card-body">
+						<form:input path="username" class="form-control"
+							placeholder="Wpisz nazwę użytkownika:" />
+					
+						<p class="bg-warning">${message}</p>
+						<form:input path="password" class="form-control"
+							placeholder="Wpisz hasło:" />
+							</br>
+						<form:input path="email" class="form-control"
+							placeholder="Wpisz email:" />
+						
+						<form:hidden path="id" />
+					</div>
+
+					<div class="card-footer">
+						<button type="submit" class="btn btn-dark btn-block">Zapisz</button>
+					</div>
+				</div>
 			</form:form>
 		</div>
 	</div>

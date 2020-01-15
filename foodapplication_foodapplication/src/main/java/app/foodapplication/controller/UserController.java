@@ -55,14 +55,8 @@ public class UserController {
 	}
 
 	@RequestMapping("/user/update")
-	public ModelAndView update(@ModelAttribute("user") User userObj, HttpServletRequest request) {
-		try {
-			userService.save(userObj);
-
-		} catch (DataIntegrityViolationException e) {
-			System.out.println(e.toString());
-		}
-
+	public ModelAndView update(@ModelAttribute("user") User userObj) {
+		userService.save(userObj);
 		ModelAndView mav = new ModelAndView("userList");
 		List<User> list = userService.get();
 		mav.addObject("list", list);

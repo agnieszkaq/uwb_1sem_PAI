@@ -12,23 +12,35 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-dark"> <a class="navbar-brand"
+		href="#">EDYTUJ UŻYTKOWNIKA: </a> </nav>
+	</br>
 	<div class="container">
-		<h3 class="text-muted">Edycja użytkownika: ${user.username}</h3>
-		</br>
-		<div class="form-group">
-			<form:form action="${pageContext.request.contextPath}/user/update"
-				modelAttribute="user">
-				<small>Wpisz hasło:</small>
-				<form:input path="password" class="form-control"
-					placeholder="Wpisz hasło:" />
-				<br />
-				<small>Wpisz email:</small>
-				<form:input path="email" class="form-control"
-					placeholder="Wpisz email:" />
-				<br />
-				<form:hidden path="id" />
-				<button type="submit" class="btn btn-dark btn-block">Edytuj</button>
-			</form:form>
+		<div class="card">
+			<div class="card-header">Edycja użytkownika: ${user.username}</div>
+
+			<div class="form-group">
+				<form:form action="${pageContext.request.contextPath}/user/update"
+					modelAttribute="user">
+					<div class="card-body">
+						<form:hidden path="username" class="form-control"
+							value="${user.username}" />
+						<small>Wpisz hasło:</small>
+						<form:input path="password" class="form-control"
+							placeholder="Wpisz hasło:" />
+						<br /> <small>Wpisz email:</small>
+						<form:input path="email" class="form-control"
+							placeholder="Wpisz email:" />
+						<br />
+
+						<form:hidden path="id" />
+					</div>
+					<div class="card-footer">
+						<button type="submit" class="btn btn-dark btn-block">Edytuj</button>
+					</div>
+				</form:form>
+
+			</div>
 		</div>
 	</div>
 </body>

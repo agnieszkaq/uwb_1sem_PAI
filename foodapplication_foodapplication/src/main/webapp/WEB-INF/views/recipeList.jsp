@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">LISTA PRZEPISÓW: </a>
+	</nav>
 
-	<h1>Lista przepisów:</h1>
 	<table border="1">
 		<tr>
 			<th>Nazwa:</th>
