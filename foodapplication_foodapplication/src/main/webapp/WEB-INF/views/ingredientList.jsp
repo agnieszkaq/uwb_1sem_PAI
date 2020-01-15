@@ -4,33 +4,55 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<link href="https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
-	<h2 class="text-info">WARTOŚĆ KALORYCZNA:</h2>
-	<table class="table table-striped table-bordered">
-		<tr class="thead-dark">
-			<th>Nazwa:</th>
-			<th>Kalorie:</th>
-			<th>Białko:</th>
-			<th>Tłuszcz:</th>
-			<th>Węglowodany:</th>
-		</tr>
-		<c:forEach items="${ingredient}" var="e">
-			<tr>
-				<td>${e.name}</td>
-				<td>${e.calories}</td>
-				<td>${e.protein}</td>
-				<td>${e.fat}</td>
-				<td>${e.carb}</td>
+	<div class="container">
+		<h3 class="text-muted">Wartość kaloryczna:</h3>
+		<table class="table table-striped table-bordered" id="datatable">
+			
+			<thead>
+			<tr class="thead-dark">
+				<th>Nazwa:</th>
+				<th>Kalorie:</th>
+				<th>Białko:</th>
+				<th>Tłuszcz:</th>
+				<th>Węglowodany:</th>
 			</tr>
-		</c:forEach>
-	</table>
-	<button onclick="window.location.href = '/user/add'">Idz
-		rejestracji</button>
-		</div>
+			
+			</thead>
+			<tbody>
+			<c:forEach items="${ingredient}" var="e">
+				<tr>
+					<td>${e.name}</td>
+					<td>${e.calories}</td>
+					<td>${e.protein}</td>
+					<td>${e.fat}</td>
+					<td>${e.carb}</td>
+				</tr>
+			</c:forEach>
+			
+			</tbody>
+		</table>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+	$("#datatable").DataTable();
+})
+
+</script>
 </body>
 </html>
