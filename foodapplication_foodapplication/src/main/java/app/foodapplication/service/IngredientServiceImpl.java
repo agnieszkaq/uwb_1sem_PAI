@@ -35,7 +35,5 @@ public class IngredientServiceImpl implements IngredientService {
 	@Override
 	public void delete(int id) {
 		ingredientDAO.delete(id);
-
 	}
-
 }

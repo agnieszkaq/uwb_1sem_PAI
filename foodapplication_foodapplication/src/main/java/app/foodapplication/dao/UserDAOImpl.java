@@ -1,15 +1,10 @@
 package app.foodapplication.dao;
-
-import java.sql.SQLException;
 import java.util.List;
-
 import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import app.foodapplication.model.User;
 
 @Repository
@@ -38,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(user);
 	}
-	
+
 	@Override
 	public void delete(int id) {
 		Session currentSession = entityManager.unwrap(Session.class);

@@ -1,6 +1,8 @@
 package app.foodapplication.service;
 
 import java.util.List;
+
+import app.foodapplication.model.Login;
 import app.foodapplication.model.User;
 
 public interface UserService {
@@ -13,6 +15,5 @@ public interface UserService {
 	void update(User user);
 	
 	void delete(int id);
-
 
 }

@@ -8,18 +8,68 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">LISTA UŻYTKOWNIKÓW: </a>
-		<button onclick="window.location.href = '/user/add'"
-			class="btn btn-dark">Dodaj nowego użytkownika</button>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"> <i class="fa fa-list"
+			style="color: white"></i> LISTA UŻYTKOWNIKÓW
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="/">Główna
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="/recipe/list">Przepisy</a></li>
+				<li class="nav-item"><a class="nav-link" href="/forum/topic">Forum</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/ingredient/list">Kaloryczność</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Kalkulatory </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/calculator/bmi">BMI</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/calculator/ppm">Podstawowa
+							przemiana materii</a>
+					</div></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"><i class="fa fa-user" style="color: white"></i> Profil </a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/sign">Logowanie</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/user/add">Rejestracja</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/user/list">Lista użytkowników</a>
+					</div></li>
+			</ul>
+		</div>
 	</nav>
 	<div class="container">
 		</br>
 		<table class="table table-striped table-bordered" id="datatable_user">
+			<button onclick="window.location.href = '/user/add'"
+				class="btn btn-dark pull-right">
+				<i class="fa fa-plus" style="color: white"></i> Dodaj nowego
+				użytkownika
+			</button>
 			<thead>
 				<tr class="thead-dark">
 					<th>Nazwa :</th>
@@ -39,7 +89,9 @@
 					</tr>
 				</c:forEach>
 			</tbody>
+
 		</table>
+
 	</div>
 
 

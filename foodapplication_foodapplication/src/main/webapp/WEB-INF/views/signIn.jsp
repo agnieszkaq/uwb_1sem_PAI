@@ -14,34 +14,31 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">REJESTRACJA: </a>
+		<a class="navbar-brand" href="#">LOGOWANIE: </a>
 	</nav>
 	</br>
 	<div class="container">
 		<div class="form-group">
-			<form:form action="${pageContext.request.contextPath}/user/save"
-				modelAttribute="user">
+			<form:form modelAttribute="login">
 				<div class="card">
-					<div class="card-header">Zarejestruj się:</div>
+					<div class="card-header">Zaloguj się:</div>
 					<div class="card-body">
-						<form:input path="username" class="form-control"
-							placeholder="Wpisz nazwę użytkownika:" />
-					
-						<p class="bg-warning">${message}</p>
-						<form:input path="password" class="form-control"
-							placeholder="Wpisz hasło:" />
-							</br>
-						<form:input path="email" class="form-control"
-							placeholder="Wpisz email:" />
-						<form:hidden path="id" />
-					</div>
 
+						<form:input type="text" path="username" class="form-control"
+							placeholder="Wpisz nazwę użytkownika:" />
+						</br>
+
+						<form:input type="text" path="password" class="form-control"
+							placeholder="Wpisz hasło użytkownika:" />
+
+
+					</div>
 					<div class="card-footer">
-						<button type="submit" class="btn btn-dark btn-block">Zapisz</button>
+						<button type="submit" class="btn btn-dark btn-block">Loguj
+							się</button>
 					</div>
 				</div>
 			</form:form>
-		</div>
-	</div>
+			<div class="form-group"></div>
 </body>
 </html>

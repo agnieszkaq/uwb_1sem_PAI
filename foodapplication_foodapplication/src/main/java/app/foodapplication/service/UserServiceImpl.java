@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import app.foodapplication.dao.UserDAO;
+import app.foodapplication.model.Login;
 import app.foodapplication.model.User;
 
 @Service

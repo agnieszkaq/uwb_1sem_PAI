@@ -18,7 +18,6 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header">Edycja użytkownika: ${user.username}</div>
-
 			<div class="form-group">
 				<form:form action="${pageContext.request.contextPath}/user/update"
 					modelAttribute="user">
