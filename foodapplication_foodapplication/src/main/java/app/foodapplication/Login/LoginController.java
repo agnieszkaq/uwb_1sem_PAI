@@ -1,5 +1,7 @@
 package app.foodapplication.Login;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +19,7 @@ import app.foodapplication.model.User;
 
 @Controller
 public class LoginController extends HttpServlet {
-	
+
 	@Autowired
 	private LoginService loginService;
 
@@ -25,6 +27,20 @@ public class LoginController extends HttpServlet {
 	public ModelAndView showLoginFormy() {
 		ModelAndView mav = new ModelAndView("signIn");
 		mav.addObject("login", new Login());
+		return mav;
+	}
+
+	@RequestMapping("/signInCheck")
+	public ModelAndView auth(@ModelAttribute("login") Login loginObj) {
+		Boolean loginCorrect = loginService.isCorrect(loginObj);
+
+		if (loginCorrect) {
+			System.out.println(loginObj.getUsername());
+			System.out.println(loginObj.getPassword());
+		} else {
+			System.out.println("Błąd!");
+		}
+		ModelAndView mav = new ModelAndView("signIn");
 		return mav;
 	}
 

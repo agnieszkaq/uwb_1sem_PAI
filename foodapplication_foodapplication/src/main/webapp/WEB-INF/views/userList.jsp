@@ -15,18 +15,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<!----------------------------------------------------------------- NAV START ----------------------------------------------------------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#"> <i class="fa fa-list"
 			style="color: white"></i> LISTA UŻYTKOWNIKÓW
 		</a>
+		
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
+		
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="/">Główna
@@ -51,8 +52,10 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"><i class="fa fa-user" style="color: white"></i> Profil </a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+					aria-expanded="false"><i class="fa fa-user"
+						style="color: white"></i> Profil </a>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/sign">Logowanie</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="/user/add">Rejestracja</a>
@@ -62,6 +65,11 @@
 			</ul>
 		</div>
 	</nav>
+	
+	
+	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
+	
+	
 	<div class="container">
 		</br>
 		<table class="table table-striped table-bordered" id="datatable_user">
@@ -89,9 +97,7 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-
 		</table>
-
 	</div>
 
 
