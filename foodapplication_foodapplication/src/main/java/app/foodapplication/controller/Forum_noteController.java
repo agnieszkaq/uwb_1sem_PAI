@@ -2,6 +2,7 @@ package app.foodapplication.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,19 +11,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import app.foodapplication.model.Forum_note;
 import app.foodapplication.service.Forum_noteService;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class Forum_noteController {
 	@Autowired
 	private Forum_noteService forum_noteService;
 
-	@GetMapping("/forum_note")
-	public List<Forum_note> get() {
-		return forum_noteService.get();
+
+	@RequestMapping(value = {"/forum/note" })
+	public ModelAndView get() {
+		ModelAndView mav = new ModelAndView("forumNote");
+		mav.addObject("forum_note", forum_noteService.get());
+		return mav;
 	}
 
 	@GetMapping("/forum_note/{id}")

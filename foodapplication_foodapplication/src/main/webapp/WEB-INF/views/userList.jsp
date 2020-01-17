@@ -20,21 +20,21 @@
 		<a class="navbar-brand" href="#"> <i class="fa fa-list"
 			style="color: white"></i> LISTA UŻYTKOWNIKÓW
 		</a>
-		
+
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		
+
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="/">Główna
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="/recipe/list">Przepisy</a></li>
-				<li class="nav-item"><a class="nav-link" href="/forum/topic">Forum</a></li>
+				<li class="nav-item"><a class="nav-link" href="/forum/note">Forum</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/ingredient/list">Kaloryczność</a></li>
 				<li class="nav-item dropdown"><a
@@ -65,11 +65,11 @@
 			</ul>
 		</div>
 	</nav>
-	
-	
+
+
 	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
-	
-	
+
+
 	<div class="container">
 		</br>
 		<table class="table table-striped table-bordered" id="datatable_user">
@@ -99,7 +99,6 @@
 			</tbody>
 		</table>
 	</div>
-
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

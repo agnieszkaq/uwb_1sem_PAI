@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,10 +23,14 @@ public class Recipe {
 	private String description;
 	@Column
 	private String text;
-	@Column
-	private Integer id_recipe_type;
-	@Column
-	private Integer id_user;
+
+	@OneToOne
+	@JoinColumn(name = "id_recipe_type")
+	private Recipe_type recipe_type;
+
+	@OneToOne
+	@JoinColumn(name = "id_user")
+	private User user;
 
 	public Integer getId() {
 		return id;
@@ -58,20 +64,22 @@ public class Recipe {
 		this.text = text;
 	}
 
-	public Integer getId_recipe_type() {
-		return id_recipe_type;
+	public Recipe_type getRecipe_type() {
+		return recipe_type;
 	}
 
-	public void setId_recipe_type(Integer id_recipe_type) {
-		this.id_recipe_type = id_recipe_type;
+	public void setRecipe_type(Recipe_type recipe_type) {
+		this.recipe_type = recipe_type;
 	}
 
-	public Integer getId_user() {
-		return id_user;
+	public User getUser() {
+		return user;
 	}
 
-	public void setId_user(Integer id_user) {
-		this.id_user = id_user;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+	
 
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import app.foodapplication.model.Recipe;
+import app.foodapplication.model.User;
 import app.foodapplication.service.RecipeService;
 
 @Controller
@@ -34,15 +35,18 @@ public class RecipeController {
 		return mav;
 	}
 
-	@GetMapping("/recipe/{id}")
-	public Recipe get(@PathVariable int id) {
+	@RequestMapping("/recipe/list/{id}")
+	public ModelAndView getById(@PathVariable("id") int id) {
+		ModelAndView mav = new ModelAndView("recipeListByID");
 		Recipe recipeObj = recipeService.get(id);
 		if (recipeObj == null) {
-			throw new RuntimeException("The recipe with id:" + id + " doesn't exist!");
+			throw new RuntimeException("Recipe not found" + id);
 		}
-		return recipeObj;
+		mav.addObject("recipe", recipeObj);
+		return mav;
 	}
-
+	
+	
 	@PostMapping("/recipe")
 	public Recipe save(@RequestBody Recipe recipeObj) {
 		recipeService.save(recipeObj);

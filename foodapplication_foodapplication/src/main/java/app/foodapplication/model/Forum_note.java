@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +25,18 @@ public class Forum_note {
 	private Date date;
 	@Column
 	private String content;
-	@Column
-	private Integer id_user;
+	
+	@OneToOne
+	@JoinColumn(name = "id_user")
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Integer getId() {
 		return id;
@@ -58,12 +70,6 @@ public class Forum_note {
 		this.content = content;
 	}
 
-	public Integer getId_user() {
-		return id_user;
-	}
 
-	public void setId_user(Integer id_user) {
-		this.id_user = id_user;
-	}
 
 }

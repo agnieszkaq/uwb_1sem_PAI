@@ -8,9 +8,6 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
@@ -21,17 +18,17 @@
 <body>
 	<!----------------------------------------------------------------- NAV START ----------------------------------------------------------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> <i class="fa fa-apple-alt"
-			style="color: white"></i> LISTA PRZEPISÓW
+		<a class="navbar-brand" href="#"> <i class="fas fa-utensils
+			style="color: white"></i> PRZEPIS na "${recipe.text}"
 		</a>
-
+		
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
+		
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="/">Główna
@@ -69,39 +66,14 @@
 			</ul>
 		</div>
 	</nav>
-
-
+	
+	
 	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
-
-
-
+	
+	
 	<div class="container">
-		</br>
-		<table class="table table-striped table-bordered" id="datatable_user">
-			<button onclick="window.location.href = '/recipe/add'"
-				class="btn btn-dark pull-right">
-				<i class="fa fa-plus" style="color: white"></i> Dodaj nowy przepis
-			</button>
-			<thead>
-				<tr class="thead-dark">
-					<th>Nazwa:</th>
-					<th>Nazwa użytkownika:</th>
-					<th>tag:</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<c:forEach items="${recipe}" var="e">
-					<tr>
-						<td><a href="/recipe/list/${e.id}">${e.text}</a></td>
-						<td>${e.user.username}</td>
-						<td>#${e.recipe_type.name}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
 	</div>
-
+	
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
@@ -109,17 +81,5 @@
 	<script
 		src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
 	<script>
-		$(document)
-				.ready(
-						function() {
-							$("#datatable_user")
-									.DataTable(
-											{
-												"language" : {
-													"url" : "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Polish.json"
-												}
-											});
-						})
-	</script>
 </body>
 </html>

@@ -21,8 +21,8 @@
 <body>
 	<!----------------------------------------------------------------- NAV START ----------------------------------------------------------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> <i class="fa fa-apple-alt"
-			style="color: white"></i> LISTA PRZEPISÓW
+		<a class="navbar-brand" href="#"> <i class="far fa-envelope"
+			style="color: white"></i> LISTA POSTÓW
 		</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -74,34 +74,31 @@
 	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
 
 
-
 	<div class="container">
 		</br>
 		<table class="table table-striped table-bordered" id="datatable_user">
-			<button onclick="window.location.href = '/recipe/add'"
+			<button onclick="window.location.href = '/forum/note/add'"
 				class="btn btn-dark pull-right">
-				<i class="fa fa-plus" style="color: white"></i> Dodaj nowy przepis
+				<i class="fa fa-plus" style="color: white"></i> Dodaj nowy temat
 			</button>
 			<thead>
 				<tr class="thead-dark">
-					<th>Nazwa:</th>
-					<th>Nazwa użytkownika:</th>
-					<th>tag:</th>
+					<th>Temat:</th>
+					<th>Użytkownik:</th>
+					<th>Data:</th>
 				</tr>
 			</thead>
-
 			<tbody>
-				<c:forEach items="${recipe}" var="e">
+				<c:forEach items="${forum_note}" var="e">
 					<tr>
-						<td><a href="/recipe/list/${e.id}">${e.text}</a></td>
+						<td><a href="/forum/note/${e.id}">${e.topic}</a></td>
 						<td>${e.user.username}</td>
-						<td>#${e.recipe_type.name}</td>
+						<td>${e.date}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script

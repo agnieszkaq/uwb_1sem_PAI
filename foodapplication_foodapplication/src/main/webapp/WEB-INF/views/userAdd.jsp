@@ -35,7 +35,7 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="/recipe/list">Przepisy</a></li>
-				<li class="nav-item"><a class="nav-link" href="/forum/topic">Forum</a></li>
+				<li class="nav-item"><a class="nav-link" href="/forum/note">Forum</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/ingredient/list">Kaloryczność</a></li>
 				<li class="nav-item dropdown"><a
@@ -71,6 +71,7 @@
 	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
 
 	<div class="container">
+	</br>
 		<div class="form-group">
 			<form:form action="${pageContext.request.contextPath}/user/save"
 				modelAttribute="user">
