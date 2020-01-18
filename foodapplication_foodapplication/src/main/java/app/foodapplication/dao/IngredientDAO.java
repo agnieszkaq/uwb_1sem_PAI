@@ -13,4 +13,8 @@ public interface IngredientDAO {
 	void save(Ingredient ingredient);
 
 	void delete(int id);
+	
+	List<Ingredient> groupByType();
+
+	List<Ingredient> getByType(String ingredientType);
 }

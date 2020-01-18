@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import app.foodapplication.model.Ingredient;
+import app.foodapplication.model.User;
 import app.foodapplication.service.IngredientService;
 
 @Controller
@@ -35,14 +36,32 @@ public class IngredientController {
 		return ingredientObj;
 	}
 
-	@RequestMapping(value = {"/ingredient/list"})
+	@GetMapping("/ingredient/list/{ingredient_type}")
+	public ModelAndView getByType(@PathVariable String ingredient_type) {
+		List<Ingredient> list = ingredientService.getByType(ingredient_type);
+		if (list == null) {
+			throw new RuntimeException("Problem with ingredient!");
+		}
+		ModelAndView mav = new ModelAndView("ingredientListByType");
+		mav.addObject("list", list);
+		return mav;
+	}
+
+	@RequestMapping(value = { "/" })
+	public ModelAndView groupByType() {
+		ModelAndView mav = new ModelAndView("ingredientType");
+		List<Ingredient> list = ingredientService.groupByType();
+		mav.addObject("list", list);
+		return mav;
+	}
+
+	@RequestMapping(value = { "/ingredient/list" })
 	public ModelAndView showIngredient() {
 		ModelAndView mav = new ModelAndView("ingredientList");
 		mav.addObject("ingredient", ingredientService.get());
 		return mav;
 	}
-	
-	
+
 	@PostMapping("/ingredient")
 	public Ingredient save(@RequestBody Ingredient ingredientObj) {
 		ingredientService.save(ingredientObj);

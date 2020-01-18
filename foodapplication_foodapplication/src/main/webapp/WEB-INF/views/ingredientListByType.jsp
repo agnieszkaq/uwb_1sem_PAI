@@ -8,9 +8,6 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
@@ -19,10 +16,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<!----------------------------------------------------------------- NAV START ----------------------------------------------------------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> <i class="far fa-envelope"
-			style="color: white"></i> LISTA POSTÓW
+		<a class="navbar-brand" href="#"> <i
+			class="fas fa-glass-martini-alt
+			style="color:white"></i> WARTOŚĆ
+			KALORYCZNA tagu: <span style="color:#9ef7b6;">#${ingredient_type}</span> 
 		</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -74,31 +74,34 @@
 	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
 
 
+
 	<div class="container">
 		</br>
-		<table class="table table-striped table-bordered" id="datatable_user">
-			<button onclick="window.location.href = '/forum/note/add'"
-				class="btn btn-dark pull-right">
-				<i class="fa fa-plus" style="color: white"></i> Dodaj nowy temat
-			</button>
+		<table class="table table-striped table-bordered"
+			id="datatable_ingredient">
 			<thead>
 				<tr class="thead-dark">
-					<th>Temat:</th>
-					<th>Użytkownik:</th>
-					<th>Data:</th>
+					<th>Nazwa:</th>
+					<th>Kalorie:</th>
+					<th>Białko:</th>
+					<th>Tłuszcz:</th>
+					<th>Węglowodany:</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${forum_note}" var="e">
+				<c:forEach items="${list}" var="e">
 					<tr>
-						<td><a href="/forum/note/${e.id}">${e.topic}</a></td>
-						<td>${e.user.username}</td>
-						<td>${e.date}</td>
+						<td>${e.name}</td>
+						<td>${e.calories}</td>
+						<td>${e.protein}</td>
+						<td>${e.fat}</td>
+						<td>${e.carb}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
@@ -109,7 +112,7 @@
 		$(document)
 				.ready(
 						function() {
-							$("#datatable_user")
+							$("#datatable_ingredient")
 									.DataTable(
 											{
 												"language" : {

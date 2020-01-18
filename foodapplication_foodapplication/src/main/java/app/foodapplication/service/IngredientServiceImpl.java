@@ -36,4 +36,15 @@ public class IngredientServiceImpl implements IngredientService {
 	public void delete(int id) {
 		ingredientDAO.delete(id);
 	}
+	
+	@Transactional
+	@Override
+	public List<Ingredient> groupByType() {
+		return ingredientDAO.groupByType();
+	}
+
+	@Override
+	public List<Ingredient> getByType(String ingredientType) {
+		return ingredientDAO.getByType(ingredientType);
+	}
 }

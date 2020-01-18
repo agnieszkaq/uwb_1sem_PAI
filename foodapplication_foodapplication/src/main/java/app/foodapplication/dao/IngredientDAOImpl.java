@@ -9,7 +9,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import app.foodapplication.model.Ingredient;
-import app.foodapplication.model.Ingredient;
 
 @Repository
 public class IngredientDAOImpl implements IngredientDAO {
@@ -25,14 +24,12 @@ public class IngredientDAOImpl implements IngredientDAO {
 		return list;
 	}
 
-	
 	@Override
 	public Ingredient get(int id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Ingredient ingredientObj = currentSession.get(Ingredient.class, id);
 		return ingredientObj;
 	}
-
 
 	@Override
 	public void save(Ingredient ingredient) {
@@ -45,6 +42,20 @@ public class IngredientDAOImpl implements IngredientDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Ingredient ingredientObj = currentSession.get(Ingredient.class, id);
 		currentSession.delete(ingredientObj);
+	}
+
+	@Override
+	public List<Ingredient> groupByType() {
+		String sql = "Select i FROM Ingredient i group by i.ingredient_type";
+		List<Ingredient> list = entityManager.createQuery(sql, Ingredient.class).getResultList();
+		return (List<Ingredient>) list;
+	}
+
+	@Override
+	public List<Ingredient> getByType(String ingredient_type) {
+		String sql = "select u from Ingredient u where u.ingredient_type='" + ingredient_type + "'";
+		List<Ingredient> list = entityManager.createQuery(sql, Ingredient.class).getResultList();
+		return (List<Ingredient>) list;
 	}
 
 }
