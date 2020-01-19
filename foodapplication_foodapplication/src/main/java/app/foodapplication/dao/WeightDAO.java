@@ -2,6 +2,7 @@ package app.foodapplication.dao;
 
 import java.util.List;
 
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Weight;
 
 public interface WeightDAO {
@@ -13,4 +14,8 @@ public interface WeightDAO {
 	void save(Weight weight);
 
 	void delete(int id);
+
+	List<Weight> getByIdRecipe(int id);
+
+	
 }

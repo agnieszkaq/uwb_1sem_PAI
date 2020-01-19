@@ -15,13 +15,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import app.foodapplication.model.Recipe;
 import app.foodapplication.model.User;
+import app.foodapplication.model.Weight;
 import app.foodapplication.service.RecipeService;
+import app.foodapplication.service.WeightService;
 
 @Controller
 public class RecipeController {
 
 	@Autowired
 	private RecipeService recipeService;
+	@Autowired
+	private WeightService weightService;
 
 //	@GetMapping("/recipe")
 //	public List<Recipe> get() {
@@ -43,6 +47,9 @@ public class RecipeController {
 			throw new RuntimeException("Recipe not found" + id);
 		}
 		mav.addObject("recipe", recipeObj);
+		
+		List<Weight> list = weightService.getByIdRecipe(id);
+		mav.addObject("weight", list);
 		return mav;
 	}
 	

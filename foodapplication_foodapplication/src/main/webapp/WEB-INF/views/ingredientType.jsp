@@ -22,7 +22,7 @@
 	<!----------------------------------------------------------------- NAV START ----------------------------------------------------------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#"> <i class="fas fa-cookie-bite"
-			style="color: white"></i> KATEGORIE PRZEPISÓW
+			style="color: white"></i> KATEGORIE SKŁADNIKÓW
 		</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"

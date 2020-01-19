@@ -18,17 +18,19 @@
 <body>
 	<!----------------------------------------------------------------- NAV START ----------------------------------------------------------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> <i class="fas fa-utensils
-			style="color: white"></i> PRZEPIS na "${recipe.text}"
+		<a class="navbar-brand" href="#"> <i
+			class="fas fa-utensils
+			style="color:white"></i> PRZEPIS na
+			"${recipe.text}"
 		</a>
-		
+
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		
+
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="/">Główna
@@ -66,14 +68,56 @@
 			</ul>
 		</div>
 	</nav>
-	
-	
+
+
 	<!----------------------------------------------------------------- NAV END ----------------------------------------------------------->
-	
-	
+
+
 	<div class="container">
+		</br>
+		<div class="row">
+			<div class="col-sm-8">
+
+				<div class="card">
+					<img src="../../img/recipe/${recipe.id}.jpeg"
+						class="card-img-top img-fluid">
+					<div class="card-body">
+						<h5 class="card-title">Przepis:</h5>
+						<p class="card-text">${recipe.description}</p>
+					</div>
+					<div class="card-footer">
+						<p class="card-text">
+							<small class="text-muted"> Dodane przez: <span
+								class="font-weight-bold">${recipe.user.username}</span></small>
+						</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Składniki:</h5>
+						<p class="card-text">With supporting text below as a natural
+							lead-in to additional content.</p>
+
+
+						<c:forEach items="${weight}" var="e">
+							<tr>
+								
+								<td>${e.weight}</td>
+							</tr>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
 	</div>
-	
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
@@ -81,5 +125,6 @@
 	<script
 		src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
 	<script>
-</body>
-</html>
+		</body>
+		</html>
+	

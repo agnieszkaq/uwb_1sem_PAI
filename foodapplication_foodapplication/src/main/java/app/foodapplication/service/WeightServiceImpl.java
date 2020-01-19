@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import app.foodapplication.dao.WeightDAO;
+import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Weight;
 
 @Service
@@ -37,4 +38,10 @@ public class WeightServiceImpl implements WeightService {
 		weightDAO.delete(id);
 	}
 
+	@Override
+	public List<Weight> getByIdRecipe(int id) {
+		return weightDAO.getByIdRecipe(id);
+	}
+
+	
 }

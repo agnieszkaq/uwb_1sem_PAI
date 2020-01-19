@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import app.foodapplication.model.Ingredient;
 import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Weight;
 import app.foodapplication.model.Weight;
@@ -33,7 +34,6 @@ public class WeightDAOImpl implements WeightDAO {
 		return weightObj;
 	}
 
-
 	@Override
 	public void save(Weight weight) {
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -47,4 +47,10 @@ public class WeightDAOImpl implements WeightDAO {
 		currentSession.delete(weightObj);
 	}
 
+	@Override
+	public List<Weight> getByIdRecipe(int id) {
+		String sql = "select w from Weight w where w.recipe.id = '" + id + "'";
+		List<Weight> list = entityManager.createQuery(sql, Weight.class).getResultList();
+		return (List<Weight>) list;
+	}
 }

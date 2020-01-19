@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +19,14 @@ public class Weight {
 	private Integer id;
 	@Column
 	private String weight;
-	@Column
-	private Integer id_ingredient;
-	@Column
-	private Integer id_recipe;
+	
+	@OneToOne
+	@JoinColumn(name = "id_ingredient")
+	private Ingredient ingredient;
+	
+	@OneToOne
+	@JoinColumn(name = "id_recipe")
+	private Recipe recipe;
 
 	public Integer getId() {
 		return id;
@@ -38,20 +44,21 @@ public class Weight {
 		this.weight = weight;
 	}
 
-	public Integer getId_ingredient() {
-		return id_ingredient;
+	public Ingredient getIngredient() {
+		return ingredient;
 	}
 
-	public void setId_ingredient(Integer id_ingredient) {
-		this.id_ingredient = id_ingredient;
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
 	}
 
-	public Integer getId_recipe() {
-		return id_recipe;
+	public Recipe getRecipe() {
+		return recipe;
 	}
 
-	public void setId_recipe(Integer id_recipe) {
-		this.id_recipe = id_recipe;
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
 	}
+
 
 }

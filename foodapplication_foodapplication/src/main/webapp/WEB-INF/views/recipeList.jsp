@@ -76,30 +76,29 @@
 
 
 	<div class="container">
-		</br>
-		<table class="table table-striped table-bordered" id="datatable_user">
-			<button onclick="window.location.href = '/recipe/add'"
-				class="btn btn-dark pull-right">
-				<i class="fa fa-plus" style="color: white"></i> Dodaj nowy przepis
-			</button>
-			<thead>
-				<tr class="thead-dark">
-					<th>Nazwa:</th>
-					<th>Nazwa użytkownika:</th>
-					<th>tag:</th>
-				</tr>
-			</thead>
 
-			<tbody>
-				<c:forEach items="${recipe}" var="e">
-					<tr>
-						<td><a href="/recipe/list/${e.id}">${e.text}</a></td>
-						<td>${e.user.username}</td>
-						<td>#${e.recipe_type.name}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		</br>
+		<button onclick="window.location.href = '/recipe/add'"
+			class="btn  btn-success btn-block">
+			<i class="fa fa-plus" style="color: white"></i> Dodaj nowy przepis
+		</button>
+
+		</br>
+
+		<div class="card-deck">
+			<c:forEach items="${recipe}" var="e">
+				<div class="card">
+					<img src="../../img/recipe/${e.id}.jpeg" class="card-img-top"
+						alt="...">
+				
+					<div class="card-footer">
+						<a href="/recipe/list/${e.id}"
+								class="btn  btn-block stretched-link  btn-dark">${e.text}</a>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+
 	</div>
 
 	<script
