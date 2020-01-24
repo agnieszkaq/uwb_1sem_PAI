@@ -47,7 +47,7 @@ public class IngredientController {
 		return mav;
 	}
 
-	@RequestMapping(value = { "/" })
+	@RequestMapping("/ingredient/category")
 	public ModelAndView groupByType() {
 		ModelAndView mav = new ModelAndView("ingredientType");
 		List<Ingredient> list = ingredientService.groupByType();

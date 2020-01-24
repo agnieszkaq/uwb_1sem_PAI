@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -36,10 +37,38 @@
 				<li class="nav-item active"><a class="nav-link" href="/">Główna
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="/recipe/list">Przepisy</a></li>
-				<li class="nav-item"><a class="nav-link" href="/forum/note">Forum</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/ingredient/list">Kaloryczność</a></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Przepisy </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/recipe/list">Lista przepisów</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/recipe/add">Dodaj przepis</a>
+					</div></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Forum </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/forum/note">Posty</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/forum/add">Dodaj post</a>
+					</div></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Kalorycznosc </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/ingredient/category">Katogorie</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="/ingredient/list">Wszystkie
+							składniki</a>
+					</div></li>
+
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -76,47 +105,101 @@
 	<div class="container">
 		</br>
 		<div class="row">
-			<div class="col-sm-8">
-
-				<div class="card">
-					<img src="../../img/recipe/${recipe.id}.jpeg"
-						class="card-img-top img-fluid">
-					<div class="card-body">
-						<h5 class="card-title">Przepis:</h5>
+			<div class="col-sm-9">
+				<div class="row">
+					<div class="col-xs-8 col-sm-6">
+						<img src="../../img/recipe/${recipe.id}.jpeg"
+							class="card-img-top img-fluid rounded">
+					</div>
+					<div class="col-xs-2 col-sm-5">
+						<h4>Przepis:</h4>
 						<p class="card-text">${recipe.description}</p>
 					</div>
-					<div class="card-footer">
-						<p class="card-text">
-							<small class="text-muted"> Dodane przez: <span
-								class="font-weight-bold">${recipe.user.username}</span></small>
-						</p>
-					</div>
-				</div>
-
-			</div>
-			<div class="col-sm-4">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Składniki:</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-
-
-						<c:forEach items="${weight}" var="e">
-							<tr>
-								
-								<td>${e.weight}</td>
-							</tr>
-						</c:forEach>
+					<div class="col-xs-1 col-sm-1 ">
+						<a style="color: #fddddd;" id="heart"><i
+							class="fas fa-heart fa-4x"></i></a>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		</br>
 
+		<table
+			class="table  table-striped table-bordered table-condensed tasks-table">
+			<thead>
+				<tr class="thead-dark">
+					<th>Nazwa:</th>
+					<th>Waga:</th>
+					<th>Białko:</th>
+					<th>Tłuszcz:</th>
+					<th>Węglowodany:</th>
+					<th>Kalorie:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${weight}" var="e">
+					<tr>
+						<td>${e.ingredient.name}</td>
+						<td>${e.weight}</td>
+						<td>${e.ingredient.protein}</td>
+						<td>${e.ingredient.fat}</td>
+						<td>${e.ingredient.carb}</td>
+						<td>${e.ingredient.calories*e.weight/100}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			<thead>
+				<tr class="thead-dark ">
+					<th>SUMA:</th>
+					<th></th>
+					<th>${sumProtein}</th>
+					<th>${sumFat}</th>
+					<th>${sumCarb}</th>
+					<th>${sumCalories}</th>
+				</tr>
+			</thead>
+		</table>
 
+		<c:if test="${not empty comment}">
+			<h3>Komentarze:</h3>
+		</c:if>
 
+		<c:forEach items="${comment}" var="e">
+			<tr>
+				</br>
+				<div class="card">
+					<div class="card-header text-light bg-dark">${e.date}</div>
+					<div class="card-body  bg-light">
+						<blockquote class="blockquote mb-0">
+							<p>
+								<i class="far fa-comments"></i> ${e.text}
+							</p>
+							<footer class="blockquote-footer">
+								<cite title="Source Title">${e.user.username}</cite>
+							</footer>
+						</blockquote>
+					</div>
+				</div>
+			</tr>
+		</c:forEach>
+
+		</br>
+		<form:form  method="post"
+			action="${pageContext.request.contextPath}/recipe_comment/text">
+			<div class="card">
+				<div class="card-header text-light bg-success">Dodaj
+					komentarz:</div>
+				<div class="card-body  bg-light">
+					</br> <input name="text"  class="form-control" placeholder="Komentarz..." /> </br>
+					<button type="submit" class="btn btn-dark btn-block">Dodaj
+						komentarz</button>
+				</div>
+			</div>
+		</form:form>
 	</div>
+
+
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -125,6 +208,25 @@
 	<script
 		src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
 	<script>
-		</body>
-		</html>
-	
+		clicked = true;
+		$(document).ready(function() {
+			$("#heart").click(function() {
+				if (clicked) {
+					$(this).css('color', '#ff9393');
+					clicked = false;
+				} else {
+					$(this).css('color', '#fddddd');
+					clicked = true;
+				}
+			});
+		});
+
+		var sumCal = 0;
+		var sumProtein = 0;
+		var sumCarb = 0;
+		var sumFat = 0;
+
+		var sum = 40;
+	</script>
+</body>
+</html>

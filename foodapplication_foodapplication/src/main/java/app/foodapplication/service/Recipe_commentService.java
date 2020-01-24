@@ -12,4 +12,6 @@ public interface Recipe_commentService {
 	void save(Recipe_comment recipe_comment);
 
 	void delete(int id);
+
+	List<Recipe_comment> getRecipeCommentByIdRecipe(int id);
 }

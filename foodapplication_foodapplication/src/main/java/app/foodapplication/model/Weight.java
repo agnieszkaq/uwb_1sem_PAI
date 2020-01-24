@@ -18,7 +18,7 @@ public class Weight {
 	@Column
 	private Integer id;
 	@Column
-	private String weight;
+	private Integer weight;
 	
 	@OneToOne
 	@JoinColumn(name = "id_ingredient")
@@ -36,11 +36,11 @@ public class Weight {
 		this.id = id;
 	}
 
-	public String getWeight() {
+	public Integer getWeight() {
 		return weight;
 	}
 
-	public void setWeight(String weight) {
+	public void setWeight(Integer weight) {
 		this.weight = weight;
 	}
 

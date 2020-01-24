@@ -38,4 +38,9 @@ public class Recipe_commentServiceImpl implements Recipe_commentService {
 
 	}
 
+	@Override
+	public List<Recipe_comment> getRecipeCommentByIdRecipe(int id) {
+		return recipe_commentDAO.getRecipeCommentByIdRecipe(id);
+	}
+
 }

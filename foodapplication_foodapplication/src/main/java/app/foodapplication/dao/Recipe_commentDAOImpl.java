@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import app.foodapplication.model.Recipe;
 import app.foodapplication.model.Recipe_comment;
+import app.foodapplication.model.Weight;
 
 @Repository
 public class Recipe_commentDAOImpl implements Recipe_commentDAO {
@@ -44,6 +45,13 @@ public class Recipe_commentDAOImpl implements Recipe_commentDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Recipe_comment recipe_commentObj = currentSession.get(Recipe_comment.class, id);
 		currentSession.delete(recipe_commentObj);
+	}
+
+	@Override
+	public List<Recipe_comment> getRecipeCommentByIdRecipe(int id) {
+		String sql = "select rc from Recipe_comment rc where rc.recipe.id = '" + id + "'";
+		List<Recipe_comment> list = entityManager.createQuery(sql, Recipe_comment.class).getResultList();
+		return (List<Recipe_comment>) list;
 	}
 
 }

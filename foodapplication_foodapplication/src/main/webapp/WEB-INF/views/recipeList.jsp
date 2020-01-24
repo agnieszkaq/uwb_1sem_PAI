@@ -79,15 +79,16 @@
 
 		</br>
 		<button onclick="window.location.href = '/recipe/add'"
-			class="btn  btn-success btn-block">
+			class="btn  btn-dark btn-block">
 			<i class="fa fa-plus" style="color: white"></i> Dodaj nowy przepis
 		</button>
 
 		</br>
 
 		<div class="card-deck">
-			<c:forEach items="${recipe}" var="e">
-				<div class="card">
+			<div class="row col-md-12">
+				<c:forEach items="${recipe}" var="e">
+				<div class="card ">
 					<img src="../../img/recipe/${e.id}.jpeg" class="card-img-top"
 						alt="...">
 				
@@ -96,9 +97,10 @@
 								class="btn  btn-block stretched-link  btn-dark">${e.text}</a>
 					</div>
 				</div>
-			</c:forEach>
+			
+				</c:forEach>
+			</div>
 		</div>
-
 	</div>
 
 	<script

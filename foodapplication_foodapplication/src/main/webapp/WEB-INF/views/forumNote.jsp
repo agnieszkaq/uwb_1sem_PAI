@@ -91,7 +91,7 @@
 			<tbody>
 				<c:forEach items="${forum_note}" var="e">
 					<tr>
-						<td><a href="/forum/note/${e.id}" class="btn btn-success btn-block stretched-link">${e.topic}</a></td>
+						<td><a href="/forum/note/${e.id}" class="btn btn-dark btn-block stretched-link">${e.topic}</a></td>
 						<td>${e.user.username}</td>
 						<td>${e.date}</td>
 					</tr>
